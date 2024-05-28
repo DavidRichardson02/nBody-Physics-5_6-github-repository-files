@@ -44,61 +44,46 @@ To install the C-String Utilities Library for use in your project, follow these 
 ## Functions
 
 ### Auxiliary Utilities
-
-#### Global Constants and Macros
-
 The `AuxiliaryUtilities.h` file includes several useful constants and macros designed to simplify common programming tasks and enhance code readability. Here are some of the key elements:
 
+#### Global Constants
+
 1. **MAX_STRING_SIZE**
-    ```c
-    static const size_t MAX_STRING_SIZE = 1000;
-    ```
-    Defines the maximum string size that can be handled by the utility functions, useful for setting buffer sizes and ensuring consistent memory allocation across different string operations.
+    - `static const size_t MAX_STRING_SIZE = 1000;` - Defines the maximum string size that can be handled by the utility functions, useful for setting buffer sizes and ensuring consistent memory allocation across different string operations.
 
 2. **months**
-    ```c
-    extern const char *months[12];
-    ```
-    Contains the names of the twelve months of the year, useful for converting numeric month representations into their corresponding textual names.
+    - `extern const char *months[12];` - Contains the names of the twelve months of the year, useful for converting numeric month representations into their corresponding textual names.
 
 3. **weekDays**
-    ```c
-    extern const char *weekDays[7];
-    ```
-    Holds the names of the seven days of the week, useful for mapping numeric day representations to their corresponding day names.
+    - `extern const char *weekDays[7];` - Holds the names of the seven days of the week, useful for mapping numeric day representations to their corresponding day names.
 
 4. **commonDateTimeFormats**
-    ```c
-    extern const char *commonDateTimeFormats[12];
-    ```
-    Contains string literals representing commonly used date/time formats, crucial for parsing and standardizing date/time strings from various data sources.
+    - `extern const char *commonDateTimeFormats[12];` - Contains string literals representing commonly used date/time formats, crucial for parsing and standardizing date/time strings from various data sources.
 
 #### Macros
 
 1. **ARRAY_SIZE**
-    ```c
-    #define ARRAY_SIZE(arr) (sizeof(arr) / sizeof((arr)[0]))
-    ```
-    Computes the number of elements in a statically-allocated array, useful for determining the size of an array at compile time.
+    - `#define ARRAY_SIZE(arr) (sizeof(arr) / sizeof((arr)[0]))` - Computes the number of elements in a statically-allocated array, useful for determining the size of an array at compile time.
 
 2. **VAR_NAME_AS_STRING**
-    ```c
-    #define VAR_NAME_AS_STRING(var) #var
-    ```
-    Creates a string representation of its argument, useful for debugging and logging purposes.
+    - `#define VAR_NAME_AS_STRING(var) #var` - Creates a string representation of its argument, useful for debugging and logging purposes.
 
-### Mutex for Thread Safety
+#### Mutex for Thread Safety
 
 The file also defines a mutex for thread safety when accessing local time functions:
+- `static pthread_mutex_t localtime_mutex = PTHREAD_MUTEX_INITIALIZER` - This mutex ensures that access to the `localtime` function is thread-safe, preventing potential data races in multi-threaded applications.
 
-```c
-static pthread_mutex_t localtime_mutex = PTHREAD_MUTEX_INITIALIZER;
-```
-This mutex ensures that access to the `localtime` function is thread-safe, preventing potential data races in multi-threaded applications.
 
-### Summary
+#### Summary
 
 These global constants, macros, and mutexes provide a foundation for the utility functions in the library, enhancing code readability, memory management, date/time handling, and thread safety. They are integral parts of the `AuxiliaryUtilities` module, ensuring that common tasks are performed efficiently and consistently.
+
+
+
+
+
+
+
 
 ### General Utilities
 
@@ -198,6 +183,17 @@ set_memory_block(&tm, 0, sizeof(struct tm)); // Reset the tm structure for each 
 copy_memory_block(&destination, source, sizeof(n));
 ```
 
+
+
+
+
+
+
+
+
+
+
+
 ### String Utilities
 
 #### Character Properties
@@ -225,9 +221,7 @@ bool isDelimiter = char_is_delimiter(c);
 
 #### String Properties
 
-Check
-
- properties of strings:
+Check properties of strings:
 - `bool string_is_numeric(const char *characterString)` - Checks if a string represents a numeric value.
 - `bool string_is_hyphen_else_is_minus_sign(char *characterString)` - Differentiates between hyphens and minus signs.
 - `int *string_is_date_time(const char *characterString, const char *delimiter, const int fieldCount)` - Analyzes a string to detect occurrences of commonly used date/time formats (defined in AuxiliaryUtilities.h).
@@ -251,6 +245,8 @@ Count elements and identify characteristics in strings:
 - `char *identify_delimiter(char **stringArray, int stringCount)` - Identifies the most common delimiter across an array of strings.
 - `char *identify_delimiter_recursive(char** stringArray, int stringCount, char **primaryDelimiters, int *primaryDelimiterCount)` - Identifies delimiters recursively, passing in primary delimiters and count by reference.
 - `const char *determine_string_representation_type(const char *token)` - Determines if a string is numeric or non-numeric, useful for assessing delimited data fields.
+- `int compare_character_strings(const char *characterString1, const char *characterString2)` - Compares two character strings for equality.
+- `char *determine_most_common_string(char **stringArray, int stringCount)` - Determines the most common string in an array of strings.
 
 ```c
 size_t length = string_length(characterString);
@@ -261,7 +257,12 @@ char *delimiters = find_potential_delimiters(characterString, &delimiterCount);
 char *delimiter = identify_delimiter(stringArray, stringCount);
 char *delimiterRecursive = identify_delimiter_recursive(stringArray, stringCount, primaryDelimiters, primaryDelimiterCount);
 const char* type = determine_string_representation_type(token);
+int cmpResult = compare_character_strings(characterString1, characterString2);
+char *commonDataType = determine_most_common_string(stringArray, stringCount);
 ```
+
+
+
 
 #### Copying and Duplicating Strings
 
@@ -277,15 +278,8 @@ char *copiedString = copy_string(destination, source);
 char *concatenatedString = concatenate_string(destination, source);
 ```
 
-#### String Comparison
 
-- `int compare_character_strings(const char *characterString1, const char *characterString2)` - Compares two character strings for equality.
-- `char *determine_most_common_string(char **stringArray, int stringCount)` - Determines the most common string in an array of strings.
 
-```c
-int cmpResult = compare_character_strings(characterString1, characterString2);
-char *commonDataType = determine_most_common_string(stringArray, stringCount);
-```
 
 #### String Manipulation
 
@@ -303,6 +297,7 @@ char *appendedString = append_string_array_to_string(characterString1, stringArr
 char *concatenatedArray = concatenate_string_array(stringArray, stringCount, delimiter);
 ```
 
+
 ##### Tokenizing and Segmenting Strings
 
 - `char *tokenize_string(char *s, const char *delim)` - Tokenizes a character string based on a delimiter.
@@ -312,6 +307,7 @@ char *concatenatedArray = concatenate_string_array(stringArray, stringCount, del
 char *token = tokenize_string(s, delim);
 char **splitStrings = split_tokenized_string(characterString, delimiter, divisions);
 ```
+
 
 ##### Trimming and Pruning Strings
 
@@ -327,6 +323,7 @@ char *prunedDelimiterString = prune_repeated_delimiters_from_string(unprunedStri
 char *processedString = prune_and_trim_problematic_characters_from_string(originalString, delimiter, fieldCount);
 ```
 
+
 ##### Formatting Strings
 
 - `char *replace_date_time_with_unix(char *characterString, const char *delimiter, const int fieldCount)` - Replaces date/time with Unix time in a string.
@@ -337,8 +334,10 @@ char *unixTimeString = replace_date_time_with_unix(characterString, delimiter, f
 char **processedArray = preprocess_string_array(stringArray, stringCount, delimiter);
 ```
 
-#### Printing
 
+
+
+#### Printing
 Print various representations of strings and arrays:
 ```c
 print_string(string);
@@ -349,9 +348,15 @@ print_array_array(data, rows, columns, label);
 print_char_ptr_array(charPtrArr, stringCount, label);
 ```
 
+
+
+
 ## Documentation and Examples
 
 For detailed documentation of each function, please refer to the comments in the source files `AuxiliaryUtilities.h`, `AuxiliaryUtilities.c`, `StringUtilities.h`, and `StringUtilities.c`. Refer to the `main.c` file for example usage of the library functions.
+
+
+
 
 ## Contributing
 
