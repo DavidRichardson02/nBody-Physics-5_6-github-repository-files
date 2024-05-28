@@ -11,6 +11,8 @@ The C-String Utilities Library provides a comprehensive suite of utilities for s
   - [Auxiliary Utilities](#auxiliary-utilities)
   - [String Utilities](#string-utilities)
 - [Contributing](#contributing)
+  
+<br/>
 
 ## Files
 
