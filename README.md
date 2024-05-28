@@ -103,7 +103,6 @@ The file also defines a mutex for thread safety when accessing local time functi
 
 ### General Utilities
 
-<br/>
 
 #### Time Operations
 Conversion between date/time strings and Unix time, thread-safe localtime conversion.
@@ -262,7 +261,7 @@ Conversion between date/time strings and Unix time, thread-safe localtime conver
 
 
 
-  
+<br/>
 <br/>
 <br/>
 
@@ -281,8 +280,7 @@ Contributions to the C-String Utilities Library are welcome. If you have any bug
 
 <br/>
 <br/>
-<br/>
-<br/>
+
 
 ### NOTE
 For the sake of brevity, some of the less interesting sections were omitted from this README, among them include:
