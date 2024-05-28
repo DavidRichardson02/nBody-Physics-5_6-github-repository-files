@@ -156,6 +156,8 @@ double maxElem = max_element(data, n);
 - `double max(double a, double b)` - Returns the maximum of two values.
 - `double min_element(double *data, int n)` - Returns the minimum element in an array.
 - `double max_element(double *data, int n)` - Returns the maximum element in an array.
+<br/>
+
 
   
 <br/>
@@ -175,6 +177,8 @@ struct tm *localTime = thread_safe_localtime(&tim, &result);
 
 - `time_t convert_to_unix_time(const char *dateTimeString)` - Converts a date/time string into Unix time.
 - `struct tm *thread_safe_localtime(const time_t *tim, struct tm *result)` - A thread-safe wrapper around localtime.
+<br/>
+
 
   
 <br/>
@@ -195,6 +199,8 @@ double doubleValue = uint64_to_double(intValue);
 - `uint64_t flip_sign_bit(uint64_t value)` - Flips the sign bit of a 64-bit integer.
 - `uint64_t double_to_uint64(double value)` - Reinterprets a double as a uint64_t.
 - `double uint64_to_double(uint64_t value)` - Reinterprets a uint64_t as a double.
+<br/>
+
 
   
 <br/>
@@ -211,6 +217,8 @@ radix_sort_doubles(unsortedData, numElements);
 
 - `void merge_sort(double *unsortedData, const int numElements)` - Sorts an array of doubles using the merge sort algorithm.
 - `void radix_sort_doubles(double *unsortedData, const int numElements)` - Sorts an array of doubles using radix sort.
+<br/>
+
 
   
 <br/>
@@ -227,6 +235,8 @@ copy_memory_block(&destination, source, sizeof(n));
 
 - `void *set_memory_block(void *block, int c, size_t n)` - Sets the first `n` bytes of the memory block to the value specified by `c`.
 - `void *copy_memory_block(void *destination, const void *source, size_t n)` - Copies `n` bytes from source to destination.
+<br/>
+
 
 
 
@@ -270,6 +280,8 @@ bool isDelimiter = char_is_delimiter(c);
 - `bool char_is_underscore(char c)` - Checks if a character is an underscore.
 - `bool char_is_sign(char c)` - Checks if a character is a sign.
 - `bool char_is_delimiter(char c)` - Checks if a character is a delimiter.
+<br/>
+
 
 
 #### String Properties
@@ -290,6 +302,8 @@ bool containsDateTime = string_array_contains_date_time(stringArray, stringCount
 - `bool string_is_hyphen_else_is_minus_sign(char *characterString)` - Differentiates between hyphens and minus signs.
 - `int *string_is_date_time(const char *characterString, const char *delimiter, const int fieldCount)` - Analyzes a string to detect occurrences of commonly used date/time formats (defined in AuxiliaryUtilities.h).
 - `bool string_array_contains_date_time(char **stringArray, int stringCount, const char *delimiter)` - Checks if any string in an array contains a date/time format.
+<br/>
+
 
 
 
@@ -324,6 +338,8 @@ char *commonDataType = determine_most_common_string(stringArray, stringCount);
 - `const char *determine_string_representation_type(const char *token)` - Determines if a string is numeric or non-numeric, useful for assessing delimited data fields.
 - `int compare_character_strings(const char *characterString1, const char *characterString2)` - Compares two character strings for equality.
 - `char *determine_most_common_string(char **stringArray, int stringCount)` - Determines the most common string in an array of strings.
+<br/>
+
 
 
 
@@ -347,6 +363,8 @@ char *concatenatedString = concatenate_string(destination, source);
 - `char *copy_n_string(char *destination, const char *source, size_t n)` - Copies up to `n` characters from the string pointed to by `source` to `destination`, padding with null characters if `n` is greater than the length of `source`.
 - `char *concatenate_string(char *destination, const char *source)` - Concatenates two character strings.
 - `char *concatenate_n_string(char *destination, const char *source, size_t n)` - Concatenates up to `n` characters from the string pointed to by `source` to the end of the string pointed to by `destination`.
+<br/>
+
 
 
 
@@ -370,6 +388,8 @@ char *concatenatedArray = concatenate_string_array(stringArray, stringCount, del
 - `char **combine_string_arrays(const char **stringArray1, int stringCountArray1, const char **stringArray2, int stringCountArray2)` - Combines two arrays of strings.
 - `char *append_string_array_to_string(const char *characterString1, const char *characterStringArray[], int numArrayStrings, const char *delimiter)` - Combines each string in the array with the original string to return a single string having the contents of the original string with each string from the array appended to it separated by the specified delimiter.
 - `char *concatenate_string_array(const char** stringArray, int stringCount, const char *delimiter)` - Concatenates an array of strings into a single string with elements/fields separated by the specified delimiter.
+<br/>
+
 
 
   
@@ -385,6 +405,8 @@ char **splitStrings = split_tokenized_string(characterString, delimiter, divisio
 
 - `char *tokenize_string(char *s, const char *delim)` - Tokenizes a character string based on a delimiter.
 - `char **split_tokenized_string(const char* characterString, const char* delimiter, int divisions)` - Splits a tokenized string into an array of strings based on a given delimiter.
+
+<br/>
 
 
 
@@ -406,6 +428,8 @@ char *processedString = prune_and_trim_problematic_characters_from_string(origin
 - `char *prune_string_whitespaces(char *unprunedString)` - Removes all whitespaces from a string.
 - `char *prune_repeated_delimiters_from_string(char *unprunedString, const char *delimiter)` - Handles repeated delimiters in a string.
 - `char *prune_and_trim_problematic_characters_from_string(char *originalString, const char *delimiter, const int fieldCount)` - Prunes and trims problematic characters.
+  
+<br/>
 
 
   
@@ -421,6 +445,8 @@ char **processedArray = preprocess_string_array(stringArray, stringCount, delimi
 
 - `char *replace_date_time_with_unix(char *characterString, const char *delimiter, const int fieldCount)` - Replaces date/time with Unix time in a string.
 - `char **preprocess_string_array(char **stringArray, int stringCount, const char *delimiter)` - Preprocesses an array of strings, trimming and pruning whitespaces, repeated delimiters, and standardizing some variable parameters.
+  
+<br/>
 
 
 
