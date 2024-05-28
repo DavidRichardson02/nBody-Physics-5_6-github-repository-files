@@ -108,14 +108,6 @@ The file also defines a mutex for thread safety when accessing local time functi
 #### Time Operations
 
 Conversion between date/time strings and Unix time, thread-safe localtime conversion.
-```c
-time_t unixTime = convert_to_unix_time(dateTimeString);
-struct tm result;
-struct tm *localTime = thread_safe_localtime(&tim, &result);
-```
-  
-<br/>
-
 - `time_t convert_to_unix_time(const char *dateTimeString)` - Converts a date/time string into Unix time.
 - `struct tm *thread_safe_localtime(const time_t *tim, struct tm *result)` - A thread-safe wrapper around localtime.
 <br/>
@@ -134,11 +126,8 @@ struct tm *localTime = thread_safe_localtime(&tim, &result);
 
 
   
-<br/>
 
 #### Sorting
-
-<br/>
 
 - `void merge_sort(double *unsortedData, const int numElements)` - Sorts an array of doubles using the merge sort algorithm.
 - `void radix_sort_doubles(double *unsortedData, const int numElements)` - Sorts an array of doubles using radix sort.
@@ -146,7 +135,6 @@ struct tm *localTime = thread_safe_localtime(&tim, &result);
 
 
   
-<br/>
 
 #### Memory Operations
 <br/>
@@ -170,19 +158,6 @@ struct tm *localTime = thread_safe_localtime(&tim, &result);
 
 #### Character Properties
 
-```c
-bool isAlpha = char_is_alpha(c);
-bool isDigit = char_is_digit(c);
-bool isAlnum = char_is_alnum(c);
-bool isWhitespace = char_is_whitespace(c);
-bool isPunctuation = char_is_punctuation(c);
-bool isUnderscore = char_is_underscore(c);
-bool isSign = char_is_sign(c);
-bool isDelimiter = char_is_delimiter(c);
-```  
-<br/>
-
-
 - `bool char_is_alpha(char c)` - Checks if a character is alphabetic.
 - `bool char_is_digit(char c)` - Checks if a character is a digit.
 - `bool char_is_alnum(char c)` - Checks if a character is alphanumeric.
@@ -197,14 +172,6 @@ bool isDelimiter = char_is_delimiter(c);
 
 #### String Properties
 
-```c
-bool isNumeric = string_is_numeric(characterString);
-bool isHyphen = string_is_hyphen_else_is_minus_sign(characterString);
-int *dateTimeFields = string_is_date_time(characterString, delimiter, fieldCount);
-bool containsDateTime = string_array_contains_date_time(stringArray, stringCount, delimiter);
-```
-  
-<br/>
 
 - `bool string_is_numeric(const char *characterString)` - Checks if a string represents a numeric value.
 - `bool string_is_hyphen_else_is_minus_sign(char *characterString)` - Differentiates between hyphens and minus signs.
@@ -217,22 +184,7 @@ bool containsDateTime = string_array_contains_date_time(stringArray, stringCount
 
 
 #### Counting and Identifying
-  
-<br/>
 
-```c
-size_t length = string_length(characterString);
-int stringCount = count_array_strings(stringArray);
-int occurrences = count_character_occurrences(characterString, c);
-char commonChar = find_most_common_non_alphanumeric_character(characterString);
-char *delimiters = find_potential_delimiters(characterString, &delimiterCount);
-char *delimiter = identify_delimiter(stringArray, stringCount);
-char *delimiterRecursive = identify_delimiter_recursive(stringArray, stringCount, primaryDelimiters, primaryDelimiterCount);
-const char* type = determine_string_representation_type(token);
-int cmpResult = compare_character_strings(characterString1, characterString2);
-char *commonDataType = determine_most_common_string(stringArray, stringCount);
-```
-  
 <br/>
 
 - `size_t string_length(const char *characterString)` - Returns the length of a character string.
@@ -257,13 +209,6 @@ char *commonDataType = determine_most_common_string(stringArray, stringCount);
 
 #### Copying and Duplicating Strings
 
-```c
-char *dupString = duplicate_string(characterString);
-char *copiedString = copy_string(destination, source);
-char *concatenatedString = concatenate_string(destination, source);
-```
-  
-<br/>
 
 - `char *duplicate_string(const char *characterString)` - Duplicates a character string.
 - `char *copy_string(char *destination, const char *source)` - Copies a character string.
@@ -281,13 +226,7 @@ char *concatenatedString = concatenate_string(destination, source);
   
 
 ##### Combining and Concatenating Strings
-```c
-char *combinedString = combine_strings(characterString1, characterString2);
-char **combinedArrays = combine_string_arrays(stringArray1, stringCountArray1, stringArray2, stringCountArray2);
-char *appendedString = append_string_array_to_string(characterString1, stringArray, numArrayStrings, delimiter);
-char *concatenatedArray = concatenate_string_array(stringArray, stringCount, delimiter);
-```
-  
+
 <br/>
 
 - `char *combine_strings(const char *characterString1, const char *characterString2)` - Returns a new string with contents of the second string appended to the first.
@@ -302,12 +241,6 @@ char *concatenatedArray = concatenate_string_array(stringArray, stringCount, del
 <br/>
 
 ##### Tokenizing and Segmenting Strings
-```c
-char *token = tokenize_string(s, delim);
-char **splitStrings = split_tokenized_string(characterString, delimiter, divisions);
-```
-  
-<br/>
 
 - `char *tokenize_string(char *s, const char *delim)` - Tokenizes a character string based on a delimiter.
 - `char **split_tokenized_string(const char* characterString, const char* delimiter, int divisions)` - Splits a tokenized string into an array of strings based on a given delimiter.
@@ -321,14 +254,6 @@ char **splitStrings = split_tokenized_string(characterString, delimiter, divisio
 
 ##### Trimming and Pruning Strings
 
-```c
-char *trimmedString = trim_string_whitespaces(untrimmedString);
-char *prunedString = prune_string_whitespaces(unprunedString);
-char *prunedDelimiterString = prune_repeated_delimiters_from_string(unprunedString, delimiter);
-char *processedString = prune_and_trim_problematic_characters_from_string(originalString, delimiter, fieldCount);
-```
-  
-<br/>
 
 - `char *trim_string_whitespaces(char *untrimmedString)` - Trims whitespace from a string.
 - `char *prune_string_whitespaces(char *unprunedString)` - Removes all whitespaces from a string.
@@ -342,12 +267,8 @@ char *processedString = prune_and_trim_problematic_characters_from_string(origin
 <br/>
 
 ##### Formatting Strings
-```c
-char *unixTimeString = replace_date_time_with_unix(characterString, delimiter, fieldCount);
-char **processedArray = preprocess_string_array(stringArray, stringCount, delimiter);
-```
+
   
-<br/>
 
 - `char *replace_date_time_with_unix(char *characterString, const char *delimiter, const int fieldCount)` - Replaces date/time with Unix time in a string.
 - `char **preprocess_string_array(char **stringArray, int stringCount, const char *delimiter)` - Preprocesses an array of strings, trimming and pruning whitespaces, repeated delimiters, and standardizing some variable parameters.
