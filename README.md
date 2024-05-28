@@ -97,8 +97,8 @@ The file also defines a mutex for thread safety when accessing local time functi
 
 
 
-
-  
+<br/>
+<br/>  
 <br/>
 
 ### General Utilities
@@ -106,7 +106,6 @@ The file also defines a mutex for thread safety when accessing local time functi
 <br/>
 
 #### Time Operations
-
 Conversion between date/time strings and Unix time, thread-safe localtime conversion.
 - `time_t convert_to_unix_time(const char *dateTimeString)` - Converts a date/time string into Unix time.
 - `struct tm *thread_safe_localtime(const time_t *tim, struct tm *result)` - A thread-safe wrapper around localtime.
@@ -114,11 +113,9 @@ Conversion between date/time strings and Unix time, thread-safe localtime conver
 
 
   
-<br/>
+
 
 #### Bitwise Operations
-<br/>
-
 - `uint64_t flip_sign_bit(uint64_t value)` - Flips the sign bit of a 64-bit integer.
 - `uint64_t double_to_uint64(double value)` - Reinterprets a double as a uint64_t.
 - `double uint64_to_double(uint64_t value)` - Reinterprets a uint64_t as a double.
@@ -128,7 +125,6 @@ Conversion between date/time strings and Unix time, thread-safe localtime conver
   
 
 #### Sorting
-
 - `void merge_sort(double *unsortedData, const int numElements)` - Sorts an array of doubles using the merge sort algorithm.
 - `void radix_sort_doubles(double *unsortedData, const int numElements)` - Sorts an array of doubles using radix sort.
 <br/>
@@ -137,8 +133,6 @@ Conversion between date/time strings and Unix time, thread-safe localtime conver
   
 
 #### Memory Operations
-<br/>
-
 - `void *set_memory_block(void *block, int c, size_t n)` - Sets the first `n` bytes of the memory block to the value specified by `c`.
 - `void *copy_memory_block(void *destination, const void *source, size_t n)` - Copies `n` bytes from source to destination.
 <br/>
@@ -150,14 +144,19 @@ Conversion between date/time strings and Unix time, thread-safe localtime conver
 
 
 
-  
+
+
+
+
+
+<br/>
+<br/>
 <br/>
 
 ### String Utilities
   
 
 #### Character Properties
-
 - `bool char_is_alpha(char c)` - Checks if a character is alphabetic.
 - `bool char_is_digit(char c)` - Checks if a character is a digit.
 - `bool char_is_alnum(char c)` - Checks if a character is alphanumeric.
@@ -171,8 +170,6 @@ Conversion between date/time strings and Unix time, thread-safe localtime conver
 
 
 #### String Properties
-
-
 - `bool string_is_numeric(const char *characterString)` - Checks if a string represents a numeric value.
 - `bool string_is_hyphen_else_is_minus_sign(char *characterString)` - Differentiates between hyphens and minus signs.
 - `int *string_is_date_time(const char *characterString, const char *delimiter, const int fieldCount)` - Analyzes a string to detect occurrences of commonly used date/time formats (defined in AuxiliaryUtilities.h).
@@ -184,9 +181,6 @@ Conversion between date/time strings and Unix time, thread-safe localtime conver
 
 
 #### Counting and Identifying
-
-<br/>
-
 - `size_t string_length(const char *characterString)` - Returns the length of a character string.
 - `int count_array_strings(char **stringArray)` - Counts the number of strings in an array of strings.
 - `int count_character_occurrences(const char *characterString, char c)` - Counts occurrences of a character in a string.
@@ -204,12 +198,9 @@ Conversion between date/time strings and Unix time, thread-safe localtime conver
 
 
 
-  
-<br/>
+
 
 #### Copying and Duplicating Strings
-
-
 - `char *duplicate_string(const char *characterString)` - Duplicates a character string.
 - `char *copy_string(char *destination, const char *source)` - Copies a character string.
 - `char *copy_n_string(char *destination, const char *source, size_t n)` - Copies up to `n` characters from the string pointed to by `source` to `destination`, padding with null characters if `n` is greater than the length of `source`.
@@ -226,9 +217,6 @@ Conversion between date/time strings and Unix time, thread-safe localtime conver
   
 
 ##### Combining and Concatenating Strings
-
-<br/>
-
 - `char *combine_strings(const char *characterString1, const char *characterString2)` - Returns a new string with contents of the second string appended to the first.
 - `char **combine_string_arrays(const char **stringArray1, int stringCountArray1, const char **stringArray2, int stringCountArray2)` - Combines two arrays of strings.
 - `char *append_string_array_to_string(const char *characterString1, const char *characterStringArray[], int numArrayStrings, const char *delimiter)` - Combines each string in the array with the original string to return a single string having the contents of the original string with each string from the array appended to it separated by the specified delimiter.
@@ -237,8 +225,6 @@ Conversion between date/time strings and Unix time, thread-safe localtime conver
 
 
 
-  
-<br/>
 
 ##### Tokenizing and Segmenting Strings
 
@@ -250,7 +236,6 @@ Conversion between date/time strings and Unix time, thread-safe localtime conver
 
 
   
-<br/>
 
 ##### Trimming and Pruning Strings
 
@@ -263,8 +248,7 @@ Conversion between date/time strings and Unix time, thread-safe localtime conver
 <br/>
 
 
-  
-<br/>
+
 
 ##### Formatting Strings
 
@@ -297,11 +281,12 @@ Contributions to the C-String Utilities Library are welcome. If you have any bug
 
 <br/>
 <br/>
+<br/>
+<br/>
 
-
-NOTE, for the sake of brevity some of the less interesting sections were omitted from this README, among them include:
+### NOTE
+For the sake of brevity, some of the less interesting sections were omitted from this README, among them include:
 - Memory Allocation Functions for allocating and deallocating memory for basic and derived types.
 - Mathematical Operations Functions for finding minimum and maximum values, both overall and within arrays.
 - Printing functions various representations of strings and arrays.
-
 <br/>
