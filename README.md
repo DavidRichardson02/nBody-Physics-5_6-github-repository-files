@@ -93,11 +93,6 @@ The file also defines a mutex for thread safety when accessing local time functi
 - `static pthread_mutex_t localtime_mutex = PTHREAD_MUTEX_INITIALIZER` - This mutex ensures that access to the `localtime` function is thread-safe, preventing potential data races in multi-threaded applications.
 
 
-#### Summary
-
-These global constants, macros, and mutexes provide a foundation for the utility functions in the library, enhancing code readability, memory management, date/time handling, and thread safety. They are integral parts of the `AuxiliaryUtilities` module, ensuring that common tasks are performed efficiently and consistently.
-
-
 
 
 
@@ -108,65 +103,11 @@ These global constants, macros, and mutexes provide a foundation for the utility
 
 ### General Utilities
 
-#### Memory Allocation
-
-Functions for allocating and deallocating memory for basic and derived types.
-
-Allocate memory for basic types:
-```c
-int *intPtr = allocate_memory_int_ptr(sizeI);
-float *floatPtr = allocate_memory_float_ptr(sizeF);
-double *doublePtr = allocate_memory_double_ptr(sizeD);
-char *charPtr = allocate_memory_char_ptr(sizeC);
-```
-
-Allocate memory for derived types:
-```c
-int **intPtrPtr = allocate_memory_int_ptr_ptr(sizeI);
-float **floatPtrPtr = allocate_memory_float_ptr_ptr(sizeF);
-double **doublePtrPtr = allocate_memory_double_ptr_ptr(sizeD);
-char **charPtrPtr = allocate_memory_char_ptr_ptr(strSize, numStrings);
-```
-
-Deallocate memory for derived types:
-```c
-deallocate_memory_int_ptr_ptr(intPtrPtr, numInts);
-deallocate_memory_float_ptr_ptr(floatPtrPtr, numFloats);
-deallocate_memory_double_ptr_ptr(doublePtrPtr, numDoubles);
-deallocate_memory_char_ptr_ptr(charPtrPtr, numStrings);
-```
-  
-<br/>
-
-#### Mathematical Operations
-
-Functions for finding minimum and maximum values, both overall and within arrays.
-
-Perform mathematical operations on containers:
-```c
-double minVal = min(a, b);
-double maxVal = max(a, b);
-double minElem = min_element(data, n);
-double maxElem = max_element(data, n);
-```
-  
-<br/>
-
-- `double min(double a, double b)` - Returns the minimum of two values.
-- `double max(double a, double b)` - Returns the maximum of two values.
-- `double min_element(double *data, int n)` - Returns the minimum element in an array.
-- `double max_element(double *data, int n)` - Returns the maximum element in an array.
-<br/>
-
-
-  
 <br/>
 
 #### Time Operations
 
 Conversion between date/time strings and Unix time, thread-safe localtime conversion.
-
-Convert date/time strings to Unix time:
 ```c
 time_t unixTime = convert_to_unix_time(dateTimeString);
 struct tm result;
@@ -184,16 +125,6 @@ struct tm *localTime = thread_safe_localtime(&tim, &result);
 <br/>
 
 #### Bitwise Operations
-
-Manipulation of double precision floating-point numbers through their binary representation.
-
-Perform bitwise operations on numerical data:
-```c
-uint64_t flippedValue = flip_sign_bit(value);
-uint64_t intValue = double_to_uint64(value);
-double doubleValue = uint64_to_double(intValue);
-```
-
 <br/>
 
 - `uint64_t flip_sign_bit(uint64_t value)` - Flips the sign bit of a 64-bit integer.
@@ -207,12 +138,6 @@ double doubleValue = uint64_to_double(intValue);
 
 #### Sorting
 
-Sort arrays using robust sorting algorithms merge sort or radix sort:
-```c
-merge_sort(unsortedData, numElements);
-radix_sort_doubles(unsortedData, numElements);
-```
-  
 <br/>
 
 - `void merge_sort(double *unsortedData, const int numElements)` - Sorts an array of doubles using the merge sort algorithm.
@@ -224,13 +149,6 @@ radix_sort_doubles(unsortedData, numElements);
 <br/>
 
 #### Memory Operations
-
-Functions for setting and copying memory blocks.
-```c
-set_memory_block(&tm, 0, sizeof(struct tm)); // Reset the tm structure for each iteration.
-copy_memory_block(&destination, source, sizeof(n));
-```
-  
 <br/>
 
 - `void *set_memory_block(void *block, int c, size_t n)` - Sets the first `n` bytes of the memory block to the value specified by `c`.
@@ -244,21 +162,14 @@ copy_memory_block(&destination, source, sizeof(n));
 
 
 
-
-
-
-
-
   
 <br/>
 
 ### String Utilities
   
-<br/>
 
 #### Character Properties
 
-Check properties of characters:
 ```c
 bool isAlpha = char_is_alpha(c);
 bool isDigit = char_is_digit(c);
@@ -285,10 +196,7 @@ bool isDelimiter = char_is_delimiter(c);
 
 
 #### String Properties
-  
-<br/>
 
-Check properties of strings:
 ```c
 bool isNumeric = string_is_numeric(characterString);
 bool isHyphen = string_is_hyphen_else_is_minus_sign(characterString);
@@ -312,7 +220,6 @@ bool containsDateTime = string_array_contains_date_time(stringArray, stringCount
   
 <br/>
 
-Count elements and identify characteristics in strings:
 ```c
 size_t length = string_length(characterString);
 int stringCount = count_array_strings(stringArray);
@@ -372,7 +279,6 @@ char *concatenatedString = concatenate_string(destination, source);
 
 #### String Manipulation
   
-<br/>
 
 ##### Combining and Concatenating Strings
 ```c
@@ -446,24 +352,8 @@ char **processedArray = preprocess_string_array(stringArray, stringCount, delimi
 - `char *replace_date_time_with_unix(char *characterString, const char *delimiter, const int fieldCount)` - Replaces date/time with Unix time in a string.
 - `char **preprocess_string_array(char **stringArray, int stringCount, const char *delimiter)` - Preprocesses an array of strings, trimming and pruning whitespaces, repeated delimiters, and standardizing some variable parameters.
   
-<br/>
 
 
-
-
-  
-<br/>
-
-#### Printing
-Print various representations of strings and arrays:
-```c
-print_string(string);
-print_string_array(stringArray, stringCount, label);
-print_string_array_array(stringArrayArray, stringArraysCount, stringSubArraysCount, label);
-print_array(n, data, label);
-print_array_array(data, rows, columns, label);
-print_char_ptr_array(charPtrArr, stringCount, label);
-```
 
 
 
@@ -484,3 +374,13 @@ For detailed documentation of each function, please refer to the comments in the
 
 Contributions to the C-String Utilities Library are welcome. If you have any bug reports, feature requests, or improvements, please open an issue or submit a pull request on GitHub.
 
+<br/>
+<br/>
+
+
+NOTE, for the sake of brevity some of the less interesting sections were omitted from this README, among them include:
+- Memory Allocation Functions for allocating and deallocating memory for basic and derived types.
+- Mathematical Operations Functions for finding minimum and maximum values, both overall and within arrays.
+- Printing functions various representations of strings and arrays.
+
+<br/>
