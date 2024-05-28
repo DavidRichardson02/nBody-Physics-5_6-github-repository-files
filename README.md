@@ -7,6 +7,7 @@ The C-String Utilities Library provides a comprehensive suite of utilities for s
 
 
 <br/>
+
 ## Table of Contents
 - [Files](#files)
 - [Installation](#installation)
@@ -20,6 +21,7 @@ The C-String Utilities Library provides a comprehensive suite of utilities for s
 
 
 <br/>
+
 ## Files
 1. **AuxiliaryUtilities.h** - Header file for auxiliary utilities, declares functions and global constants for general utility purposes.
 2. **AuxiliaryUtilities.c** - Implementation file for auxiliary utilities.
@@ -30,6 +32,7 @@ The C-String Utilities Library provides a comprehensive suite of utilities for s
 
   
 <br/>
+
 ## Installation
 
 To install the C-String Utilities Library for use in your project, follow these steps:
@@ -56,6 +59,7 @@ To install the C-String Utilities Library for use in your project, follow these 
 
   
 <br/>
+
 ## Functions
 
 ### Auxiliary Utilities
@@ -101,6 +105,7 @@ These global constants, macros, and mutexes provide a foundation for the utility
 
   
 <br/>
+
 ### General Utilities
 
 #### Memory Allocation
@@ -211,6 +216,7 @@ copy_memory_block(&destination, source, sizeof(n));
 
   
 <br/>
+
 ### String Utilities
 
 #### Character Properties
@@ -370,6 +376,7 @@ print_char_ptr_array(charPtrArr, stringCount, label);
   
 <br/>
 <br/>
+
 ## Documentation and Examples
 
 For detailed documentation of each function, please refer to the comments in the source files `AuxiliaryUtilities.h`, `AuxiliaryUtilities.c`, `StringUtilities.h`, and `StringUtilities.c`. Refer to the `main.c` file for example usage of the library functions.
@@ -378,6 +385,7 @@ For detailed documentation of each function, please refer to the comments in the
 
   
 <br/>
+
 ## Contributing
 
 Contributions to the C-String Utilities Library are welcome. If you have any bug reports, feature requests, or improvements, please open an issue or submit a pull request on GitHub.
