@@ -1,0 +1,2 @@
+This repository is NOT used as a development environment in any capacity, instead, it functions as a snapshot archive, where updates are made selectively to 
+document significant advancements or pivotal changes to the program and is only posted for personal convenience in operations while porting the program. Consequently, the version available here will rarely, if ever, reflect the most up-to-date iteration of the project.
